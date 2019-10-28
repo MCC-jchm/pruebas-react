@@ -23,5 +23,5 @@ app.listen(7770, 'localhost', function(err) {
     return;
   }
 
-  console.log('Listening at http://localhost:7770 \n esta es la version final del yutu');
+  console.log('Listening at http://localhost:7770');
 });
