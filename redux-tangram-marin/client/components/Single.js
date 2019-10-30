@@ -1,14 +1,25 @@
 import React from 'react';
-
+import Photo from './Photo';
+import Comments from './Comments';
 
 const Single = React.createClass({
-    render(){
-        return (
-            <div className="single-photo">
-                soy  solo una foto
-            </div>
-        )
-    }
-})
-// este export es importante para que se pueeda importar el componente atraves del paquete (nombre de la carpeta)
+  render() {
+    const { postId } = this.props.params;
+
+    const i = this.props.posts.findIndex((post) => post.code === postId);
+    const post = this.props.posts[i];
+
+    const postComments = this.props.comments[postId] || [];
+
+    return (
+      <div className="single-photo">
+        <Photo i={i} post={post} {...this.props} />
+        <Comments postComments={postComments} />
+        
+      </div>
+    )
+  }
+});
+
 export default Single;
+    
